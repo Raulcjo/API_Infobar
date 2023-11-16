@@ -9,13 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<InfoDbContext>(x => x.UseMySQL(connectionStringMySql));*/
 
 var connectionStringPgSql = builder.Configuration.GetConnectionString("PostgreConn");
-
 builder.Services.AddDbContext<InfoDbContext>(context => context.UseNpgsql(connectionStringPgSql));
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
